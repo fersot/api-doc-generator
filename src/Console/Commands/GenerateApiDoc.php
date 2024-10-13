@@ -3,7 +3,7 @@
 namespace Fersot\Console\Commands;
 
 use Illuminate\Console\Command;
-use ApiDocGenerator\ApiDocGenerator;
+use Fersot\ApiDocGenerator;
 
 class GenerateApiDoc extends Command
 {
