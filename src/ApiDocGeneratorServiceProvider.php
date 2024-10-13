@@ -1,12 +1,12 @@
 <?php
 
-namespace Fersot;
+namespace Fersot\ApiDocGenerator;
 
-use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\ServiceProvider as BaseServiceProvider;
 use ApiDocGenerator\Console\Commands\GenerateApiDoc;
 
 
-class ApiDocGeneratorServiceProvider extends ServiceProvider
+class ServiceProvider extends BaseServiceProvider
 {
     /**
      * Register services.

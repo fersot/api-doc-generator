@@ -1,6 +1,6 @@
 <?php
 
-namespace Fersot;
+namespace Fersot\ApiDocGenerator;
 
 use phpDocumentor\Reflection\DocBlockFactory;
 use ReflectionClass;
