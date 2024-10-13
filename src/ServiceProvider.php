@@ -13,7 +13,7 @@ class ServiceProvider extends BaseServiceProvider
      */
     public function register()
     {
-        $this->mergeConfigFrom(__DIR__ . '/../config/api-doc-generator.php', 'api-doc-generator');
+        $this->mergeConfigFrom(__DIR__ . '/../src/config/api-doc-generator.php', 'api-doc-generator');
         $this->app->singleton('ApiDocGenerator', function ($app) {
             return new \Fersot\ApiDocGenerator();
         });
@@ -26,8 +26,8 @@ class ServiceProvider extends BaseServiceProvider
         $this->publishes([
             __DIR__ . '/../config/api-doc-generator.php' => config_path('api-doc-generator.php'),
         ], 'config');
-        $this->loadRoutesFrom(__DIR__ . '/../routes/web.php');
-        $this->loadViewsFrom(__DIR__ . '/../resources/views', 'api-doc-generator');
+        $this->loadRoutesFrom(__DIR__ . '/../src/routes/web.php');
+        $this->loadViewsFrom(__DIR__ . '/../src/resources/views', 'api-doc-generator');
 
         $this->commands([
             GenerateApiDoc::class,
