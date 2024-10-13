@@ -16,7 +16,7 @@
   "require": {
     "phpdocumentor/reflection-docblock": "^5.4",
     "symfony/yaml": "^6.4",
-    "nikic/php-parser": "^5.3"
+    "nikic/php-parser": "^4.1"
   },
   "extra": {
     "laravel": {
