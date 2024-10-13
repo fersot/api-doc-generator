@@ -1,0 +1,28 @@
+{
+  "name": "fersot/api-doc-generator",
+  "description": "This package automatically generates API documentation in OpenAPI 3.0 format (YAML or JSON) by reading and parsing PHPDoc annotations from your controllers. It simplifies the process of documenting APIs by extracting routes, method descriptions, parameters, and responses directly from your code.",
+  "license": "MIT",
+  "autoload": {
+    "psr-4": {
+      "Fersot\\ApiDocGenerator\\": "src/"
+    }
+  },
+  "authors": [
+    {
+      "name": "Hember Colmenares",
+      "email": "hemberfer@gmail.com"
+    }
+  ],
+  "require": {
+    "phpdocumentor/reflection-docblock": "^5.4",
+    "symfony/yaml": "^6.4",
+    "nikic/php-parser": "^5.3"
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "ApiDocGenerator\\ApiDocGeneratorServiceProvider"
+      ]
+    }
+  }
+}
