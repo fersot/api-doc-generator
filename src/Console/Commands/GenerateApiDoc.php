@@ -15,16 +15,36 @@ class GenerateApiDoc extends Command
         $controller = $this->argument('controller');
         $outputPath = config('api-doc-generator.output_path');
 
+        $apiDocGenerator = new ApiDocGenerator();
+
         if ($controller) {
             $this->info("Generating API documentation for controller: {$controller}");
-            $apiDocGenerator = new ApiDocGenerator();
             $apiDocGenerator->generateOpenApiYaml($outputPath, $controller);
             $this->info("API documentation generated at: {$outputPath}");
         } else {
             $this->info("Generating API documentation for all controllers...");
-            $apiDocGenerator = new ApiDocGenerator();
-            $apiDocGenerator->generateOpenApiYaml($outputPath, 'App\Http\Controllers');
+            $controllers = $this->getAllControllers();
+            foreach ($controllers as $controllerClass) {
+                $apiDocGenerator->generateOpenApiYaml($outputPath, $controllerClass);
+            }
             $this->info("API documentation generated at: {$outputPath}");
         }
+    }
+
+    private function getAllControllers()
+    {
+        $controllerNamespace = 'App\Http\Controllers';
+        $controllers = [];
+
+        foreach (glob(app_path('Http/Controllers/*.php')) as $file) {
+            $filename = basename($file, '.php');
+            $fullClassName = $controllerNamespace . '\\' . $filename;
+
+            if (class_exists($fullClassName)) {
+                $controllers[] = $fullClassName;
+            }
+        }
+
+        return $controllers;
     }
 }
