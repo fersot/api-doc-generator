@@ -1,6 +1,6 @@
 <?php
 
-namespace Fersot\Console\Commands;
+namespace Fersot\ApiDocGenerator\Console\Commands;
 
 use Illuminate\Console\Command;
 use Fersot\ApiDocGenerator;
