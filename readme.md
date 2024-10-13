@@ -71,6 +71,27 @@ return [
 ];
 ```
 
+## Usage
+
+### Generating API Documentation
+
+To generate OpenAPI documentation using the Artisan command, run:
+
+```bash
+php artisan doc:generate {controller?}
+```
+
+You can specify a controller to generate documentation only for that controller. If no controller is specified, the command will attempt to generate documentation for all controllers.
+
+```bash
+# Generate documentation for a specific controller
+
+php artisan doc:generate App\Http\Controllers\UserController
+
+# Generate documentation for all controllers
+php artisan doc:generate
+```
+
 ### Requirements
 
 - PHP >= 8.1

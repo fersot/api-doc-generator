@@ -3,6 +3,8 @@
 namespace ApiDocGenerator;
 
 use Illuminate\Support\ServiceProvider;
+use ApiDocGenerator\Console\Commands\GenerateApiDoc;
+
 
 class ApiDocGeneratorServiceProvider extends ServiceProvider
 {
@@ -27,5 +29,9 @@ class ApiDocGeneratorServiceProvider extends ServiceProvider
         ], 'config');
         $this->loadRoutesFrom(__DIR__ . '/../routes/web.php');
         $this->loadViewsFrom(__DIR__ . '/../resources/views', 'api-doc-generator');
+
+        $this->commands([
+            GenerateApiDoc::class,
+        ]);
     }
 }
