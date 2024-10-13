@@ -1,6 +1,6 @@
 <?php
 
-namespace ApiDocGenerator;
+namespace Fersot;
 
 use Illuminate\Support\ServiceProvider;
 use ApiDocGenerator\Console\Commands\GenerateApiDoc;
