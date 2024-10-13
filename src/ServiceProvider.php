@@ -18,7 +18,6 @@ class ServiceProvider extends BaseServiceProvider
             return new \Fersot\ApiDocGenerator();
         });
     }
-
     /**
      * Bootstrap services.
      */
