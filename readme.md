@@ -79,7 +79,7 @@ return [
 
 ## Author
 
-- **Your Name** - [youremail@example.com](mailto:youremail@example.com) ([GitHub](https://github.com/yourusername))
+- **Hember Colmenares** - [hemberfer@gmail.com](mailto:hemberfer@gmail.com) ([GitHub](https://github.com/fersot))
 
 ## Contributing
 
@@ -91,6 +91,6 @@ This package is open-source software licensed under the [MIT license](https://op
 
 ## Support Me ☕️
 
-Thanks for visiting my repository! If you like my work and want to support me in building more awesome projects, you can do so through [Buy Me a Coffee](https://buymeacoffee.com/yourusername).
+Thanks for visiting my repository! If you like my work and want to support me in building more awesome projects, you can do so through [Buy Me a Coffee](https://buymeacoffee.com/fersot).
 
-[![Buy Me a Coffee](https://img.shields.io/badge/Buy%20Me%20a%20Coffee-FF813F?style=for-the-badge&logo=buymeacoffee&logoColor=white)](https://buymeacoffee.com/yourusername)
+[![Buy Me a Coffee](https://img.shields.io/badge/Buy%20Me%20a%20Coffee-FF813F?style=for-the-badge&logo=buymeacoffee&logoColor=white)](https://buymeacoffee.com/fersot)
