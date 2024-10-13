@@ -7,7 +7,7 @@ This Laravel package automatically generates API documentation in **OpenAPI 3.0*
 You can install the package via Composer:
 
 ```bash
-composer require your-namespace/api-doc-generator
+composer require fersot/api-doc-generator
 ```
 
 ## Usage
@@ -17,7 +17,7 @@ composer require your-namespace/api-doc-generator
 To generate OpenAPI documentation, the `generateOpenApiYaml` method can be used. This will parse the controllers' PHPDoc annotations and output an OpenAPI YAML file.
 
 ```php
-use YourNamespace\ApiDocGenerator\ApiDocGenerator;
+use Fersot\ApiDocGenerator;
 
 $apiDocGenerator = new ApiDocGenerator();
 $apiDocGenerator->generateOpenApiYaml('path/to/output/api-docs.yaml', 'App\Http\Controllers\YourController');
@@ -42,7 +42,7 @@ After modifying the configuration, you can access the Swagger UI at the new rout
 ### Example
 
 ```php
-use YourNamespace\ApiDocGenerator\ApiDocGenerator;
+use Fersot\ApiDocGenerator;
 
 $apiDocGenerator = new ApiDocGenerator();
 
