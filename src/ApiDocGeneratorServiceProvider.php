@@ -3,7 +3,7 @@
 namespace Fersot\ApiDocGenerator;
 
 use Illuminate\Support\ServiceProvider as BaseServiceProvider;
-use ApiDocGenerator\Console\Commands\GenerateApiDoc;
+use Fersot\ApiDocGenerator\Console\Commands\GenerateApiDoc;
 
 
 class ServiceProvider extends BaseServiceProvider
