@@ -13,7 +13,7 @@ class ServiceProvider extends BaseServiceProvider
      */
     public function register()
     {
-        $this->mergeConfigFrom(__DIR__ . './config/api-doc-generator.php', 'api-doc-generator');
+        $this->mergeConfigFrom(__DIR__ . '/../config/api-doc-generator.php', 'api-doc-generator');
         $this->app->singleton('ApiDocGenerator', function ($app) {
             return new \Fersot\ApiDocGenerator();
         });
