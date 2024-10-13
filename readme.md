@@ -1,77 +1,85 @@
-# Laravel Excel to JSON / Collection / Array
+# Laravel API Documentation Generator
 
-This Laravel package provides utilities for converting Excel files to JSON format, Laravel Collections, or PHP Arrays. It also supports reading data from multiple sheets within an Excel file.
+This Laravel package automatically generates API documentation in **OpenAPI 3.0** format (YAML or JSON) by reading and parsing PHPDoc annotations from your controllers. It also integrates a customizable **Swagger UI** for visualizing and interacting with the API documentation.
 
 ## Installation
 
 You can install the package via Composer:
 
 ```bash
-composer require fersot/excel-to
+composer require your-namespace/api-doc-generator
 ```
 
 ## Usage
 
-### JSON Conversion
+### API Documentation Generation
 
-To convert an Excel file to JSON format, use the `json` method of the `ExcelTo` class:
-
-```php
-use Fersot\ExcelTo\ExcelTo;
-
-$jsonData = ExcelTo::json('path/to/your/excel_file.xlsx');
-```
-
-This will return a JSON-encoded string representing the Excel data. If the Excel file contains multiple sheets, the data will be organized by sheet names.
-
-### Collection Conversion
-
-To convert an Excel file to a Laravel Collection, use the `collection` method of the `ExcelTo` class:
+To generate OpenAPI documentation, the `generateOpenApiYaml` method can be used. This will parse the controllers' PHPDoc annotations and output an OpenAPI YAML file.
 
 ```php
-use Fersot\ExcelTo\ExcelTo;
+use YourNamespace\ApiDocGenerator\ApiDocGenerator;
 
-$collection = ExcelTo::collection('path/to/your/excel_file.xlsx');
+$apiDocGenerator = new ApiDocGenerator();
+$apiDocGenerator->generateOpenApiYaml('path/to/output/api-docs.yaml', 'App\Http\Controllers\YourController');
 ```
 
-This will return a Laravel Collection containing the Excel data. When multiple sheets are present, each sheet's data will be a collection keyed by the sheet name.
+This will generate a YAML file containing the API documentation based on your controller's annotations. The file can be used to visualize the API with tools like Swagger UI.
 
-### Array Conversion
+### Customizing Swagger UI Route
 
-To convert an Excel file to a PHP Array, use the `array` method of the `ExcelTo` class:
+The package serves the Swagger UI interface, allowing you to view the generated OpenAPI documentation. The default route is `/swagger`, but you can change this route in the configuration file.
 
 ```php
-use Fersot\ExcelTo\ExcelTo;
-
-$arrayData = ExcelTo::array('path/to/your/excel_file.xlsx');
+// config/api-doc-generator.php
+return [
+    'swagger_ui_path' => 'api-docs', // Change the default Swagger UI path
+    'output_path' => base_path('docs/api-docs.yaml'), // Path to the OpenAPI file
+];
 ```
 
-This will return a PHP array containing the Excel data. Similar to JSON and Collection, multiple sheets will be keyed by their names.
+After modifying the configuration, you can access the Swagger UI at the new route, e.g., `http://localhost/api-docs`.
 
-## Example
+### Example
 
 ```php
-use Fersot\ExcelTo\ExcelTo;
+use YourNamespace\ApiDocGenerator\ApiDocGenerator;
 
-// Convert Excel to JSON
-$jsonData = ExcelTo::json('path/to/your/excel_file.xlsx');
+$apiDocGenerator = new ApiDocGenerator();
 
-// Convert Excel to Collection
-$collection = ExcelTo::collection('path/to/your/excel_file.xlsx');
+// Generate OpenAPI YAML documentation for specific controllers
+$apiDocGenerator->generateOpenApiYaml('path/to/output/api-docs.yaml', 'App\Http\Controllers\UserController');
 
-// Convert Excel to Array
-$arrayData = ExcelTo::array('path/to/your/excel_file.xlsx');
+// Access the Swagger UI at the configured route
 ```
 
-## Requirements
+### Configuration
+
+After installing the package, publish the configuration file to customize the output format, output path, and Swagger UI route.
+
+```bash
+php artisan vendor:publish --tag=config
+```
+
+The configuration file `api-doc-generator.php` will be published to your `config` directory. It includes the following options:
+
+```php
+return [
+    'output_format' => 'yaml', // Can be 'yaml' or 'json'
+    'output_path' => base_path('docs/api-docs.yaml'), // Default output path for the OpenAPI file
+    'base_url' => env('APP_URL', 'http://localhost'), // Base URL for your API
+    'swagger_ui_path' => 'swagger', // Route to serve Swagger UI, e.g., '/swagger'
+];
+```
+
+### Requirements
 
 - PHP >= 8.1
 - Laravel >= 8.x
-- PhpSpreadsheet >= 1.20
+- Swagger UI 3.x
 
 ## Author
 
-- **Hember Colmenares** - [hemberfer@gmail.com](mailto:hemberfer@gmail.com) ([Github](https://github.com/fersot))
+- **Your Name** - [youremail@example.com](mailto:youremail@example.com) ([GitHub](https://github.com/yourusername))
 
 ## Contributing
 
@@ -81,21 +89,8 @@ Contributions are welcome! Feel free to submit pull requests or open an issue if
 
 This package is open-source software licensed under the [MIT license](https://opensource.org/licenses/MIT).
 
-
-### Key Updates:
-1. **Support for Multiple Sheets:** 
-   - Described how the package handles multiple sheets, with data organized by sheet names.
-
-2. **Array Conversion:**
-   - Added a new section for array conversion, including an example of how to use the new `array` method.
-
-3. **Clarified Output Format:**
-   - Explained the structure of the data returned by each method, emphasizing the handling of single vs. multiple sheets.
-
-Feel free to modify any section further if you have additional details or preferences for the README content.
-
 ## Support Me ☕️
 
-Thanks for visiting my repository! If you like my work and want to support me in building more awesome projects, you can do so through [Buy Me a Coffee](https://buymeacoffee.com/fersot).
+Thanks for visiting my repository! If you like my work and want to support me in building more awesome projects, you can do so through [Buy Me a Coffee](https://buymeacoffee.com/yourusername).
 
-[![Buy Me a Coffee](https://img.shields.io/badge/Buy%20Me%20a%20Coffee-FF813F?style=for-the-badge&logo=buymeacoffee&logoColor=white)](https://buymeacoffee.com/fersot)
+[![Buy Me a Coffee](https://img.shields.io/badge/Buy%20Me%20a%20Coffee-FF813F?style=for-the-badge&logo=buymeacoffee&logoColor=white)](https://buymeacoffee.com/yourusername)
